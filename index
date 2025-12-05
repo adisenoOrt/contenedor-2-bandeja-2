@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Bandeja 4 Altair y Antares </title>
+  <title>Bandeja 4 Altair y Antares</title>
   <style>
     :root { color-scheme: light; }
     body {
@@ -94,19 +95,23 @@
     <section class="thumbnails" aria-label="Previsualización de imágenes">
       <div class="thumb" role="button" aria-label="Ver Altair" onclick="mostrar('altair')">
         <img
-         thubusercontent.com/adisenoOrt/QRPANACEA/027c71b01d0b8fddf3d776952c276a6eab656680/Bandeja%201%20Contenedor%201%20Instrumental.JPG
-        <div class="label">Altair</div>
-      </div>
-      <div class="thumb" role="button" aria-label="Ver Antares" onclick="mostrar('antares')">
+          src="https://raw.githubusercontent.com/adisenoOrt/contenedor-2-bandeja-2/4089c2ffee089b6a384b4edc636341bc871817f6/Bandeja%205%20Contenedor%202%20Instrumental.JPG"
+          alt="Miniatura Altair"
+          loading="lazy"
+          referrerpolicy="no-referrer"
+          onerror="this.src='data:image/svg+xml;charset=utf-8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22360%s="thumb" role="button" aria-label="Ver Antares" onclick="mostrar('antares')">
         <img
-          src="https://raw.githubusercontent.com/adisenoOrt/QRPANACEA/main/Ensamble%20Bande.JPG
-        <div class="label">Antares</div>
-      </div>
+          src="https://raw.githubusercontent.com/adisenoOrt/contenedor-2-bandeja-2/refs/heads/main/Ensamble%20Bandeja%204%20-%20Antares.JPG"
+          alt="Miniatura Antares"
+          loading="lazy"
+          referrerpolicy="no-referrer"
+          onerror="this.src='data:image/svg+xml;charset=utf-8,<svg xmlns=%22http://www.w3.org/2000/svg>
     </section>
 
     <!-- Visor principal (único <img>) -->
     <section class="viewer" aria-live="polite">
       <img id="viewer" alt="Visor de imagen" loading="eager"
+           referrerpolicy="no-referrer"
            onerror="this.style.display='none'; document.getElementById('status').textContent='No se pudo cargar la imagen.';">
       <div id="status" class="hint">Pulsa un botón o una miniatura para ver la imagen.</div>
     </section>
@@ -115,8 +120,8 @@
   <!-- Script al final para evitar problemas de carga -->
   <script>
     const URLS = {
-      altair: "https://raw.githubusercontent.com/adisenoOrt/QRPANACEA/027c71b01d0b8fddf3d776952c276a6eab656680/Bandeja%201%20Contenedor%201%20Instrumental.JPG",
-      antares:"https://raw.githubusercontent.com/adisenoOrt/QRPANACEA/main/Ensamble%20Bandeja%201%20-%20Antares.JPG"
+      altair: "https://raw.githubusercontent.com/adisenoOrt/contenedor-2-bandeja-2/4089c2ffee089b6a384b4edc636341bc871817f6/Bandeja%205%20Contenedor%202%20Instrumental.JPG",
+      antares: "https://raw.githubusercontent.com/adisenoOrt/contenedor-2-bandeja-2/refs/heads/main/Ensamble%20Bandeja%204%20-%20Antares.JPG"
     };
 
     function mostrar(estrella) {
@@ -131,6 +136,10 @@
       viewer.onload = () => {
         viewer.style.display = 'block';
         status.textContent = (estrella === 'altair') ? 'Mostrando: Altair' : 'Mostrando: Antares';
+      };
+      viewer.onerror = () => {
+        viewer.style.display = 'none';
+        status.textContent = 'No se pudo cargar la imagen.';
       };
     }
 
